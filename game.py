@@ -2,9 +2,9 @@ import pygame
 import time, random
 
 pygame.init()
-pygame.mixer.init()
-display_width = 1200
-display_height = 700
+pygame.mixer.init()  #initializing mixer for music
+display_width = 1200 #setting up window width and height
+display_height = 700    
 black = (0, 0, 0)
 white = (255, 255, 255)
 red = (255, 0, 0)
@@ -14,12 +14,12 @@ blue = (0,0,255)
 green = (0,255 ,0)
 car_width = 100
 dodges = 0
-crash_sound = pygame.mixer.Sound('Crash.ogg')
+crash_sound = pygame.mixer.Sound('Crash.ogg')  #Loading sound for crash
 pygame.mixer.music.load('Jazz_in_Paris.ogg')
 gamedisplay = pygame.display.set_mode((display_width, display_height))
-pygame.display.set_caption('Car')
+pygame.display.set_caption('Car')    #Window title
 clock = pygame.time.Clock()
-carImage = pygame.image.load('saad.jpg')
+carImage = pygame.image.load('car.jpg')
 objectimage = pygame.image.load('rocky.png')
 Fill = pygame.image.load('road.png')
 def dodged(count):
@@ -32,8 +32,8 @@ def car(x, y):  # displaying the car
 
 
 def objects(objectx, objecty, objecth, objectw, color):
-    # pygame.draw.rect(gamedisplay, color, [objectx, objecty , objecth, objectw] )
-    gamedisplay.blit(objectimage, (objectx, objecty))
+    # pygame.draw.rect(gamedisplay, color, [objectx, objecty , objecth, objectw] ) #we can use this code to draw a rect shaped object
+    gamedisplay.blit(objectimage, (objectx, objecty))   #loading rock's image
 
 
 def text_objects(text, font):
@@ -64,9 +64,6 @@ def crash():
     pygame.mixer.music.stop()
     pygame.mixer.Sound.play(crash_sound)
     #msg('Your score: ' + str(dodges))
-#def score():
- #   dodged(dodges)
-  #  msg('Your score: ' + str(dodges))
 
 def button():
     mouse = pygame.mouse.get_pos()
